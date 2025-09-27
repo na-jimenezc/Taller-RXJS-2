@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-info-usuario',
   imports: [CommonModule],
   templateUrl: './info-usuario.html',
-  styleUrl: './info-usuario.css'
+  styleUrls: ['./info-usuario.css']
 })
 export class InfoUsuario {
   @Input() usuario: UsuarioDTO | null = null;

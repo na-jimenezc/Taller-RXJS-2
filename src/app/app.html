@@ -1,12 +1,16 @@
 <div class="container py-4">
   <app-barra-busqueda 
+    [loading]="loading"
     (onBuscarUsuario)="onBuscarUsuario($event)"
     (onLimpiarBusqueda)="onLimpiarBusqueda()">
   </app-barra-busqueda>
 
-  <div *ngIf="error" class="alert alert-danger mt-3">
-    <i class="fas fa-exclamation-circle me-1"></i> {{ error }}
-  </div>
+<div *ngIf="error" class="alert alert-danger mt-3">
+  {{ error }}
+</div>
 
-  <app-info-usuario *ngIf="usuario" [usuario]="usuario"></app-info-usuario>
+<app-info-usuario *ngIf="usuario" [usuario]="usuario"></app-info-usuario>
+
+<div *ngIf="loading" class="mt-2 text-primary fw-bold">
+  ⏳ Cargando datos del usuario...
 </div>

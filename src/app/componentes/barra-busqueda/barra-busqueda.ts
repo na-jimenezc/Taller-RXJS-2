@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -11,11 +11,11 @@ import { CommonModule } from '@angular/common';
 export class BarraBusqueda {
 
   //Eventos 
+  @Input() loading = false; 
   @Output() onBuscarUsuario = new EventEmitter<string>();
   @Output() onLimpiarBusqueda = new EventEmitter<void>();
 
   searchForm: FormGroup;
-  loading = false;
 
   constructor(private fb: FormBuilder) {
     this.searchForm = this.fb.group({

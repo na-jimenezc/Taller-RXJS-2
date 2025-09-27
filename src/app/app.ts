@@ -23,24 +23,31 @@ export class App {
   constructor(private usuarioService: UsuarioService) {}
 
   onBuscarUsuario(username: string): void {
+
+    console.log('Buscando usuario con username:', username);
     this.loading = true;
     this.error = '';
-    this.usuario = null;
-
-    this.usuarioService.buscarPorUsername(username).subscribe({
-      next: (usuarioDTO) => {
-        if (!usuarioDTO) {
-          this.error = 'Usuario no encontrado. Verifica el username e intenta nuevamente.';
-        } else {
-          this.usuario = usuarioDTO;
+  
+     this.usuarioService.buscarPorUsername(username).subscribe({
+        next: (usuarioDTO) => {
+          console.log('Respuesta UsuarioDTO:', usuarioDTO);
+          if (!usuarioDTO) {
+            this.error = 'Usuario no encontrado. Verifica el username e intenta nuevamente.';
+            this.usuario = null; 
+          } else {
+            this.usuario = usuarioDTO;
+          }
+          this.loading=false;
         }
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = err.message;
-        this.loading = false;
-      }
-    });
+        
+        ,
+        error: (err) => {
+          console.error('Error en búsqueda:', err);
+          this.error = err.message;
+          this.loading = false;
+        }
+      
+      });
   }
 
   onLimpiarBusqueda(): void {

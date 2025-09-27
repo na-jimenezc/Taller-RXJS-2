@@ -12,57 +12,47 @@ import { Usuario } from '../model/usuario.model';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private baseUrl = 'https://dummyjson.com/';
+  private readonly apiUrl = 'https://dummyjson.com/users';
 
   constructor(private http: HttpClient) { }
 
   //Función para buscar por username
-  buscarPorUsername(username: string): Observable<UsuarioDTO | null> {
+    buscarPorUsername(username: string): Observable<UsuarioDTO | null> {
+        const url = `${this.apiUrl}/filter?key=username&value=${username}`;
+        console.log('URL consulta:', url);
 
-    if (!username || username.trim() === ''){
-      return throwError(() => new Error('El username no puede ser nulo'));
-    }
+        return this.http.get<{ users: Usuario[] }>(url).pipe(
+        map((resp) => {
+            console.log('Respuesta API completa:', resp);
 
-    const params = new HttpParams()
-      .set('key', 'username')
-      .set('value', username.trim());
-
-    //La longitud de los usuarios siempre debe ser mayor a 0 cuando se utiliza esta página,
-    //por eso se mapea la lista de todos los que si se encuentran registradps
-    return this.http.get<{ users: Usuario[] }>(`${this.baseUrl}/users/filter`, { params })
-
-      //Pipe de filtrado
-      .pipe(
-        map(response => {
-          if (!response.users || response.users.length === 0) {
+            if (!resp.users || resp.users.length === 0) {
+            console.warn('Usuario no encontrado');
             return null;
-          }
-          
-          const usuario = response.users[0];
-          return this.mapearDTO(usuario);
+            }
+
+            const u = resp.users[0];
+            console.log('Usuario encontrado:', u);
+
+            const dto: UsuarioDTO = {
+            firstName: u.firstName,
+            lastName: u.lastName,
+            age: u.age,
+            gender: u.gender,
+            username: u.username,
+            city: u.address?.city || '',
+            role: u.role,
+            image: u.image,
+            email: u.email,
+            phone: u.phone
+            };
+
+            console.log('UsuarioDTO generado:', dto);
+            return dto;
         }),
-
-        //Para errpres
-        catchError(error => {
-          console.error('Hubo un error en la búsqueda del usuario:', error);
-          return throwError(() => new Error('Error al buscar el usuario. Por favor, intenta nuevamente.'));
+        catchError((err) => {
+            console.error('Error en la API:', err);
+            return throwError(() => new Error('Error en la consulta de usuario'));
         })
-      );
-  }
-
-  //Función auxiliar para no traerme todos los datos del usuario con ayuda del DTO
-  private mapearDTO(usuario: Usuario): UsuarioDTO {
-     return{
-      firstName: usuario.firstName,
-      lastName: usuario.lastName,
-      age: usuario.age,
-      gender: usuario.gender,
-      username: usuario.username,
-      city: usuario.address?.city || 'No especificada',
-      role: usuario.role,
-      image: usuario.image,
-      email: usuario.email,
-      phone: usuario.phone
-    };
-  }
+        );
+    }
 }
