@@ -1,0 +1,55 @@
+<div class="barra-busqueda card border-primary mb-4">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0">
+      <i class="fas fa-search me-2"></i>¿A quién buscas?
+    </h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="searchForm" (ngSubmit)="buscarUsuario()">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-8">
+          <label for="username" class="form-label">Nombre de Usuario:</label>
+          <input 
+            type="text" 
+            id="username"
+            class="form-control" 
+            formControlName="username"
+
+            placeholder="Ingresa el username"
+            (keypress)="presionarBusqueda($event)"
+            [class.is-invalid]="campoInvalido">
+          
+          <div *ngIf="campoInvalido" class="invalid-feedback d-block">
+            <i class="fas fa-exclamation-triangle me-1"></i>{{ mensajeError }}
+          </div>
+        </div>
+        
+        <div class="col-md-4 d-flex align-items-end gap-2">
+          <button 
+            type="submit" 
+            class="btn btn-primary flex-fill"
+            [disabled]="searchForm.invalid || loading">
+            <span *ngIf="!loading">
+              <i class="fas fa-search me-1"></i> Buscar
+            </span>
+            <span *ngIf="loading">
+              <i class="fas fa-spinner fa-spin me-1"></i> Buscando...
+            </span>
+          </button>
+          
+          <button 
+            type="button" 
+            class="btn btn-outline-secondary"
+            (click)="limpiarBusqueda()">
+            <i class="fas fa-times me-1"></i> Limpiar
+          </button>
+        </div>
+      </div>
+      
+      <small class="text-muted mt-2 d-block">
+        <i class="fas fa-info-circle me-1"></i>
+        Algunos usernames: atuny0, hbingley1, rshawe2, yraigatt3
+      </small>
+    </form>
+  </div>
+</div>

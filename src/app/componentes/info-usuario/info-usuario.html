@@ -1,0 +1,47 @@
+<div *ngIf="usuario" class="card mb-4">
+  <div class="card-header bg-success text-white">
+    <h5 class="mb-0">
+      <i class="fas fa-user me-2"></i>Información del Usuario
+    </h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <!--Imagen del usuario-->
+      <div class="col-md-3 text-center">
+        <img 
+          [src]="usuario.image || 'assets/user-placeholder.png'" 
+          [alt]="usuario.username"
+          class="img-fluid rounded-circle mb-3 user-image">
+        <div class="badge bg-primary fs-6">{{ usuario.role | uppercase }}</div>
+      </div>
+      
+      <!--Info del usuario-->
+      <div class="col-md-9">
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="text-primary">Información Personal</h6>
+            <p><strong>Nombre:</strong> {{ usuario.firstName }} {{ usuario.lastName }}</p>
+            <p><strong>Username:</strong> {{ usuario.username }}</p>
+            <p><strong>Edad:</strong> {{ usuario.age }} años</p>
+            <p><strong>Género:</strong> 
+              <span [class]="usuario.gender === 'male' ? 'badge bg-info' : 'badge bg-pink'">
+                {{ usuario.gender | titlecase }}
+              </span>
+            </p>
+          </div>
+          
+          <div class="col-md-6">
+            <h6 class="text-primary">Contacto y Ubicación</h6>
+            <p><strong>Email:</strong> {{ usuario.email }}</p>
+            <p><strong>Teléfono:</strong> {{ usuario.phone }}</p>
+            <p><strong>Ciudad:</strong> {{ usuario.city }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!usuario" class="alert alert-info text-center">
+  <i class="fas fa-info-circle me-2"></i>No se ha seleccionado ningún usuario. Usa la barra de búsqueda para encontrar un usuario.
+</div>
