@@ -10,6 +10,13 @@
 </div>
 
 <app-info-usuario *ngIf="usuario" [usuario]="usuario"></app-info-usuario>
+<app-info-posts
+  *ngIf="usuario"
+  [posts]="posts"
+  [loading]="postsLoading"
+  [error]="postsError">
+</app-info-posts>
+
 
 <div *ngIf="loading" class="mt-2 text-primary fw-bold">
   ⏳ Cargando datos del usuario...

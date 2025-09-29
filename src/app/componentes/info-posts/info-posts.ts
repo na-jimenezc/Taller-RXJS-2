@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Publicacion } from '../../core/model/publicacion.model';
 
 @Component({
   selector: 'app-info-posts',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './info-posts.html',
   styleUrl: './info-posts.css'
 })
 export class InfoPosts {
-
+  @Input() posts: Publicacion[] = [];
+  @Input() loading = false;
+  @Input() error = '';
 }
