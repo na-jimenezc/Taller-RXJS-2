@@ -1,0 +1,333 @@
+.barra-busqueda .card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e8ed;
+    border-radius: 16px;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.barra-busqueda .card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.barra-busqueda .card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border-bottom: none;
+    padding: 1rem 1.5rem;
+    border-radius: 16px 16px 0 0 !important;
+}
+
+.barra-busqueda .card-header h5 {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.barra-busqueda .form-control {
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: #f7f9fa;
+}
+
+.barra-busqueda .form-control:focus {
+    border-color: #1DA1F2;
+    box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.1);
+    background: white;
+}
+
+.barra-busqueda .btn-primary {
+    background: #1DA1F2;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.barra-busqueda .btn-primary:hover:not(:disabled) {
+    background: #1A91DA;
+    transform: translateY(-1px);
+}
+
+.barra-busqueda .btn-outline-secondary {
+    border: 2px solid #657786;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: #657786;
+    transition: all 0.2s ease;
+}
+
+.barra-busqueda .btn-outline-secondary:hover {
+    background: #657786;
+    border-color: #657786;
+    color: white;
+}
+
+.barra-busqueda .invalid-feedback {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #E0245E;
+}
+
+.barra-busqueda .fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .barra-busqueda .d-flex {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+    
+    .barra-busqueda .btn {
+        width: 100%;
+    }
+}
+.barra-busqueda .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+.barra-busqueda .card {
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.barra-busqueda .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.barra-busqueda .card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.barra-busqueda .card-header h5 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.barra-busqueda .form-control {
+    border: 2px solid rgba(225, 232, 237, 0.8);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(247, 249, 250, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.barra-busqueda .form-control:focus {
+    border-color: #1DA1F2;
+    box-shadow: 
+        0 0 0 3px rgba(29, 161, 242, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    background: white;
+    transform: translateY(-1px);
+}
+
+.barra-busqueda .btn-primary {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(29, 161, 242, 0.3);
+}
+
+.barra-busqueda .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.4);
+}
+
+.barra-busqueda .btn-outline-secondary {
+    border: 2px solid rgba(101, 119, 134, 0.3);
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: #657786;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.barra-busqueda .btn-outline-secondary:hover {
+    background: #657786;
+    border-color: #657786;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.barra-busqueda .invalid-feedback {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #E0245E;
+}
+
+.barra-busqueda .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .barra-busqueda .d-flex {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+    
+    .barra-busqueda .btn {
+        width: 100%;
+    }
+}
+
+.barra-busqueda .card {
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.barra-busqueda .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.barra-busqueda .card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px 20px 0 0 !important;
+    color: white !important; /* Texto blanco */
+}
+
+.barra-busqueda .card-header h5 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white !important; /* Texto blanco */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos en header - BLANCOS */
+.barra-busqueda .card-header .bi {
+    color: white !important;
+}
+
+.barra-busqueda .form-control {
+    border: 2px solid rgba(225, 232, 237, 0.8);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(247, 249, 250, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.barra-busqueda .form-control:focus {
+    border-color: #1DA1F2;
+    box-shadow: 
+        0 0 0 3px rgba(29, 161, 242, 0.1),
+        inset 0 1px 2px rgba(255, 255, 255, 0.8);
+    background: white;
+    transform: translateY(-1px);
+}
+
+.barra-busqueda .btn-primary {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%);
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(29, 161, 242, 0.3);
+}
+
+.barra-busqueda .btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.4);
+}
+
+.barra-busqueda .btn-outline-secondary {
+    border: 2px solid rgba(101, 119, 134, 0.3);
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    color: #657786;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.barra-busqueda .btn-outline-secondary:hover {
+    background: #657786;
+    border-color: #657786;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.barra-busqueda .invalid-feedback {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #E0245E;
+}
+
+.barra-busqueda .spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .barra-busqueda .d-flex {
+        flex-direction: column;
+        gap: 0.75rem !important;
+    }
+    
+    .barra-busqueda .btn {
+        width: 100%;
+    }
+}

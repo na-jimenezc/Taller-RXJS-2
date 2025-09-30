@@ -1,0 +1,217 @@
+/* Estilos globales - Tema Twitter mejorado */
+:root {
+    --twitter-blue: #1DA1F2;
+    --twitter-dark-blue: #1A91DA;
+    --success-green: #17BF63;
+    --error-red: #E0245E;
+    --text-dark: #14171A;
+    --text-gray: #657786;
+    --border-light: #e1e8ed;
+    --background-light: #f7f9fa;
+    --card-bg: rgba(255, 255, 255, 0.95);
+}
+
+body {
+    background: linear-gradient(135deg, #f5f8fa 0%, #e1e8ed 100%);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+}
+
+.app-container {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    padding: 1rem;
+}
+
+.app-header {
+    margin-bottom: 2rem;
+}
+
+.app-title {
+    color: var(--twitter-blue);
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-subtitle {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #657786;
+}
+
+/* Tarjetas suavizadas */
+.card {
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    border: none;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* Headers de tarjetas - TEXTO BLANCO */
+.card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px 20px 0 0 !important;
+    position: relative;
+    overflow: hidden;
+    color: white !important; /* Aseguramos texto blanco */
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+}
+
+.card-header h5 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white !important; /* Texto blanco */
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos dentro de headers - BLANCOS */
+.card-header .bi {
+    color: white !important;
+    filter: brightness(1); /* Aseguramos que sean completamente blancos */
+}
+
+/* Alertas suavizadas */
+.alert {
+    border: none;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.alert-danger {
+    background: rgba(224, 36, 94, 0.08);
+    color: var(--error-red);
+    border-left: 4px solid var(--error-red);
+}
+
+.alert-info {
+    background: rgba(29, 161, 242, 0.08);
+    color: var(--twitter-blue);
+    border-left: 4px solid var(--twitter-blue);
+}
+
+/* Estados de carga mejorados */
+.loading-container {
+    padding: 3rem;
+    text-align: center;
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+    border-width: 0.2em;
+}
+
+/* Mejoras de tipografía */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+strong {
+    font-weight: 600;
+}
+
+/* Efectos hover suaves */
+.btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Iconos Bootstrap */
+.bi {
+    font-size: 1.1em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .app-subtitle {
+        font-size: 1rem;
+    }
+    
+    .card {
+        border-radius: 16px;
+        margin-bottom: 1rem;
+    }
+    
+    .card-header {
+        border-radius: 16px 16px 0 0 !important;
+        padding: 1rem 1.25rem;
+    }
+}
+
+/* Animación de entrada para contenido */
+.user-content {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de profundidad sutil */
+.app-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(135deg, #1DA1F2 0%, transparent 70%);
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}

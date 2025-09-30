@@ -1,5 +1,5 @@
-<div class="card mb-4">
-  <div class="card-header bg-secondary text-white">
+<div class="info-posts card mb-4">
+  <div class="card-header">
     <h5 class="mb-0">
       <i class="bi bi-journal-text me-2"></i> Publicaciones del usuario
     </h5>
@@ -7,40 +7,59 @@
 
   <div class="card-body">
     <!-- Estados -->
-    <div *ngIf="loading" class="text-primary fw-bold">⏳ Cargando publicaciones...</div>
-    <div *ngIf="!loading && error" class="alert alert-danger">{{ error }}</div>
-    <div *ngIf="!loading && !error && posts.length === 0" class="text-muted">Este usuario no tiene publicaciones.</div>
+    <div *ngIf="loading" class="loading-state">
+      <i class="bi bi-arrow-repeat spinner me-2"></i>Cargando publicaciones...
+    </div>
+    <div *ngIf="!loading && error" class="alert alert-danger">
+      <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+    </div>
+    <div *ngIf="!loading && !error && posts.length === 0" class="empty-state">
+      <i class="bi bi-inbox me-2"></i>Este usuario no tiene publicaciones.
+    </div>
 
     <!-- Lista de posts -->
-    <div *ngIf="!loading && !error && posts.length > 0">
-      <div *ngFor="let p of posts" class="card mb-3">
+    <div *ngIf="!loading && !error && posts.length > 0" class="posts-container">
+      <div *ngFor="let p of posts; let i = index" class="post-card card">
         <div class="card-body">
-          <h6 class="card-title">{{ p.title }}</h6>
-          <p class="card-text mb-2">{{ p.body }}</p>
+          <div class="post-header mb-2">
+            <span class="post-number badge bg-light text-dark">#{{ i + 1 }}</span>
+            <h6 class="post-title">{{ p.title }}</h6>
+          </div>
+          
+          <p class="post-body">{{ p.body }}</p>
 
-          <!-- Reacciones con íconos -->
-          <div class="d-flex gap-3 align-items-center mt-2">
-            <!-- Likes -->
-            <span class="badge text-bg-success d-inline-flex align-items-center gap-1" title="Likes">
-              <i class="bi bi-hand-thumbs-up-fill" aria-hidden="true"></i>
-              {{ p.reactions.likes | number }}
+          <!-- Reacciones -->
+          <div class="reactions-container">
+            <span class="reaction likes" title="Likes">
+              <i class="bi bi-hand-thumbs-up-fill"></i>
+              <span class="count">{{ p.reactions.likes | number }}</span>
             </span>
-
-            <!-- Dislikes -->
-            <span class="badge text-bg-danger d-inline-flex align-items-center gap-1" title="Dislikes">
-              <i class="bi bi-hand-thumbs-down-fill" aria-hidden="true"></i>
-              {{ p.reactions.dislikes | number }}
+            
+            <span class="reaction dislikes" title="Dislikes">
+              <i class="bi bi-hand-thumbs-down-fill"></i>
+              <span class="count">{{ p.reactions.dislikes | number }}</span>
             </span>
           </div>
 
-          <hr class="my-2">
-          <small class="fw-bold">Comentarios ({{ p.comentarios?.length || 0 }})</small>
-          <ul class="list-unstyled mt-2 mb-0">
-            <li *ngFor="let c of p.comentarios" class="mb-2">
-              <strong>{{ c.user.fullName || c.user.username }}</strong>:
-              <span>{{ c.body }}</span>
-            </li>
-          </ul>
+          <!-- Comentarios -->
+          <div class="comments-section" *ngIf="p.comentarios && p.comentarios.length > 0">
+            <div class="comments-header">
+              <i class="bi bi-chat-left-text me-1"></i>
+              <span class="fw-semibold">Comentarios ({{ p.comentarios.length }})</span>
+            </div>
+            <div class="comments-list">
+              <div *ngFor="let c of p.comentarios" class="comment-item">
+                <div class="comment-header">
+                  <strong class="comment-author">{{ c.user.fullName || c.user.username }}</strong>
+                </div>
+                <p class="comment-body mb-0">{{ c.body }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!p.comentarios || p.comentarios.length === 0" class="no-comments text-muted">
+            <i class="bi bi-chat-left me-1"></i>No hay comentarios
+          </div>
         </div>
       </div>
     </div>

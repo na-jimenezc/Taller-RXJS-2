@@ -1,23 +1,42 @@
-<div class="container py-4">
-  <app-barra-busqueda 
-    [loading]="loading"
-    (onBuscarUsuario)="onBuscarUsuario($event)"
-    (onLimpiarBusqueda)="onLimpiarBusqueda()">
-  </app-barra-busqueda>
+<div class="app-container">
+  <div class="container py-4">
+    <!-- Header -->
+    <div class="app-header text-center mb-4">
+      <h1 class="app-title">
+        <i class="bi bi-people-fill me-2"></i>Social User Finder
+      </h1>
+      <p class="app-subtitle text-muted">Encuentra usuarios y sus publicaciones</p>
+    </div>
 
-<div *ngIf="error" class="alert alert-danger mt-3">
-  {{ error }}
-</div>
+    <!-- Barra de búsqueda -->
+    <app-barra-busqueda 
+      [loading]="loading"
+      (onBuscarUsuario)="onBuscarUsuario($event)"
+      (onLimpiarBusqueda)="onLimpiarBusqueda()">
+    </app-barra-busqueda>
 
-<app-info-usuario *ngIf="usuario" [usuario]="usuario"></app-info-usuario>
-<app-info-posts
-  *ngIf="usuario"
-  [posts]="posts"
-  [loading]="postsLoading"
-  [error]="postsError">
-</app-info-posts>
+    <!-- Mensaje de error -->
+    <div *ngIf="error" class="alert alert-danger mt-3">
+      <i class="bi bi-exclamation-triangle me-2"></i>{{ error }}
+    </div>
 
+    <!-- Loading state -->
+    <div *ngIf="loading" class="loading-container text-center mt-4">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Cargando...</span>
+      </div>
+      <p class="mt-2 text-primary fw-semibold">Buscando usuario...</p>
+    </div>
 
-<div *ngIf="loading" class="mt-2 text-primary fw-bold">
-  ⏳ Cargando datos del usuario...
+    <!-- Contenido del usuario -->
+    <div *ngIf="usuario && !loading" class="user-content">
+      <app-info-usuario [usuario]="usuario"></app-info-usuario>
+      
+      <app-info-posts
+        [posts]="posts"
+        [loading]="postsLoading"
+        [error]="postsError">
+      </app-info-posts>
+    </div>
+  </div>
 </div>

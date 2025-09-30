@@ -1,0 +1,400 @@
+.info-usuario .card {
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-usuario .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.info-usuario .card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+.info-usuario .card-body {
+    padding: 2rem;
+    background: transparent;
+}
+
+/* Imagen de usuario con borde suave */
+.user-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.user-image:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Resto del CSS se mantiene igual desde aquí... */
+.role-badge {
+    background: linear-gradient(135deg, #17BF63 0%, #119e4d 100%) !important;
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gender-container {
+    margin-top: 0.5rem;
+}
+
+.gender-male {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gender-female {
+    background: linear-gradient(135deg, #E0245E 0%, #c41c4d 100%) !important;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: #1DA1F2 !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(29, 161, 242, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: rgba(247, 249, 250, 0.5);
+    transition: all 0.2s ease;
+}
+
+.info-item:hover {
+    background: rgba(29, 161, 242, 0.05);
+    transform: translateX(5px);
+}
+
+.info-label {
+    color: #657786;
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    color: #14171A;
+    font-weight: 500;
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+.info-value.username {
+    color: #1DA1F2;
+    font-weight: 600;
+}
+
+.info-value.email {
+    font-size: 0.9rem;
+    color: #657786;
+}
+
+.alert-info {
+    background: rgba(29, 161, 242, 0.08);
+    border: 1px solid rgba(29, 161, 242, 0.2);
+    border-radius: 16px;
+    color: #1DA1F2;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-usuario .card-body {
+        padding: 1.5rem;
+    }
+    
+    .user-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .info-label {
+        min-width: auto;
+        font-size: 0.85rem;
+    }
+    
+    .info-value {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.info-usuario .card {
+    border-radius: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 6px rgba(0, 0, 0, 0.05),
+        0 1px 3px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info-usuario .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.info-usuario .card-header {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    border-radius: 20px 20px 0 0 !important;
+    color: white !important; /* Texto blanco */
+}
+
+.info-usuario .card-header h5 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: white !important; /* Texto blanco */
+    margin: 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Iconos en header - BLANCOS */
+.info-usuario .card-header .bi {
+    color: white !important;
+}
+
+.info-usuario .card-body {
+    padding: 2rem;
+    background: transparent;
+}
+
+/* Resto del CSS se mantiene igual... */
+.user-image {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.user-image:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.role-badge {
+    background: linear-gradient(135deg, #17BF63 0%, #119e4d 100%) !important;
+    color: white;
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gender-container {
+    margin-top: 0.5rem;
+}
+
+.gender-male {
+    background: linear-gradient(135deg, #1DA1F2 0%, #1A91DA 100%) !important;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gender-female {
+    background: linear-gradient(135deg, #E0245E 0%, #c41c4d 100%) !important;
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    color: #1DA1F2 !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(29, 161, 242, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: rgba(247, 249, 250, 0.5);
+    transition: all 0.2s ease;
+}
+
+.info-item:hover {
+    background: rgba(29, 161, 242, 0.05);
+    transform: translateX(5px);
+}
+
+.info-label {
+    color: #657786;
+    font-weight: 600;
+    font-size: 0.9rem;
+    min-width: 100px;
+    flex-shrink: 0;
+}
+
+.info-value {
+    color: #14171A;
+    font-weight: 500;
+    flex: 1;
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+.info-value.username {
+    color: #1DA1F2;
+    font-weight: 600;
+}
+
+.info-value.email {
+    font-size: 0.9rem;
+    color: #657786;
+}
+
+.alert-info {
+    background: rgba(29, 161, 242, 0.08);
+    border: 1px solid rgba(29, 161, 242, 0.2);
+    border-radius: 16px;
+    color: #1DA1F2;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .info-usuario .card-body {
+        padding: 1.5rem;
+    }
+    
+    .user-image {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .info-label {
+        min-width: auto;
+        font-size: 0.85rem;
+    }
+    
+    .info-value {
+        text-align: left;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+}
